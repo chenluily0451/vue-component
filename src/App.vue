@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ComponentContainer/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ComponentContainer from './components/ComponentContainer.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    ComponentContainer
   }
 }
 </script>
@@ -23,6 +22,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  text-align: left;
 }
+  body{padding:0;margin:0}
 </style>
