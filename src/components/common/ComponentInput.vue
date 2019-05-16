@@ -43,8 +43,8 @@
     $clearH:20px;
     .inputWrap{
         position: relative;
+        box-sizing: border-box;
         width:100%;
-        padding:0 10px;
         margin-bottom: 10px;
         padding-left: 0;
         i{
@@ -70,12 +70,13 @@
         input{
             width:100%;
             border:1px solid #ccc;
-            padding:0 10px;
+            padding-left:10px;
             border-radius: 5px;
             outline:none;
             min-height: $inputH;
             line-height: $inputH;
             font-size: 20px;
+            box-sizing: border-box;
         }
 
     }

@@ -24,5 +24,5 @@ export default {
   color: #2c3e50;
   text-align: left;
 }
-  body{padding:0;margin:0}
+  body{padding:0;margin:0;box-sizing: border-box;}
 </style>

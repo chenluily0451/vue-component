@@ -37,7 +37,7 @@
             padding:0;
             margin:0;
             min-height: 40px;
-
+            margin-bottom: 10px;
             border-radius: 5px;
 
             &:hover{
