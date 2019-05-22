@@ -1,12 +1,13 @@
 <template>
     <div class="inputWrap" :style="{width:widthVal}">
         <div class="clear" v-show="showClear">
-            <i @click="clearInput">X</i>
+            <i @click="clearInput" >X</i>
         </div>
-        <input type="text" :name="inputName" v-model="inputdata" :style="{borderColor:borderColorVal}" >
+        <input type="text" :name="inputName" v-model="inputdata" :style="{borderColor:borderColorVal}" @blur="blurFun" >
     </div>
 </template>
 <script>
+
     export default {
         name: 'ComponentInput',
         props:{
@@ -34,13 +35,17 @@
         methods:{
             clearInput(){
                 this.inputdata = "";
+            },
+            blurFun(){
+                this.$emit('innerInputVal', this.inputdata);
             }
         }
     }
 </script>
-<style lang="scss">
-    $inputH:30px;
-    $clearH:20px;
+<style lang="scss"  scoped>
+    $inputH : 30px;
+    $clearH : 20px;
+
     .inputWrap{
         position: relative;
         box-sizing: border-box;

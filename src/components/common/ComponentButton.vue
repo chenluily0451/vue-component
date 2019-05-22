@@ -1,9 +1,10 @@
 <template>
     <div class="btnWrap">
-        <button :class= buttonType>{{buttonVal}}</button>
+        <button :class= buttonType @click="addCount">{{buttonVal}}</button>
     </div>
 </template>
 <script>
+    import { store, mutations } from "../../store";
     export default {
         name: 'ComponentButton',
         props:{
@@ -16,12 +17,14 @@
                 default:'submit'
             }
         },
-        data(){
-            return {}
+        methods:{
+            addCount:function () {
+                mutations.setCount(store.count + 1)
+            }
         }
     }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     .btnWrap{
         display: inline-block;
         margin-right: 10px;

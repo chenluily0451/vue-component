@@ -1,32 +1,39 @@
 <template>
   <div class="container">
-    <ComponentInput :show-clear= true :width-val= "'200px'" border-color-val="red" :input-name="'input1'" />
-    <ComponentInput :show-clear= false :width-val= "'200px'" :input-name="'input2'" />
+    <ComponentInput :show-clear= true :width-val= "'200px'" :border-color-val="'red'" :input-name="'input1'" @innerInputVal="updateVal" />
+    <ComponentInput :show-clear= false :width-val= "'200px'" :input-name="'input2'" :border-color-val="'blue'"/>
     <ComponentInput :show-clear= false :width-val= "'100%'" :input-name="'input2'" />
     <componentButton :button-val ="'提交'" />
     <componentButton :button-type="'error'"/>
-    <componentButton :button-type="'disabled'" :button-val ="'自定义'"/>
+    <componentButton :button-type="'disabled'" :button-val ="'自定义'"/>{{count}}
   </div>
 </template>
 
 <script>
 import ComponentInput from './common/ComponentInput.vue'
 import ComponentButton from './common/ComponentButton.vue'
+import { store } from "../store";
 export default {
   name: 'ComponentContainer',
-  data(){
-    return {
+  computed:{
+    count:function () {
+      return store.count;
     }
   },
   components:{
     ComponentInput,
     ComponentButton
+  },
+  methods:{
+    updateVal(data){
+      alert(data)
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss">
+<style lang="scss" scoped>
   .container{
     padding:10px;
     width:100%;
