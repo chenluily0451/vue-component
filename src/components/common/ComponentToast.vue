@@ -1,17 +1,23 @@
 <template>
     <div class="toast">
-        <p>服务器错误，请稍后重试</p>
+        <p>{{content}}</p>
     </div>
 </template>
 <script>
     export default {
         name: "Toast",
+        data(){
+            return {
+                content:"",
+                duration:3000
+            }
+        },
         mounted() {
             // 3s 后通过父级移除子元素的方式来移除该组件实例和 DOM 节点
             setTimeout(()=>{
                 this.$destroy(true);
                 this.$el.parentNode.removeChild(this.$el);
-            },3000)
+            },this.duration)
         }
     }
 </script>

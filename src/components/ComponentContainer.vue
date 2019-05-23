@@ -32,7 +32,7 @@ export default {
       mutations.setCount(store.count + 1)
     },
     toast(){
-      this.$toast();
+      this.$toast({content:"这是个弹窗",duration:500});
     }
   }
 }

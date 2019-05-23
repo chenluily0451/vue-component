@@ -5,8 +5,10 @@ import toast from "./components/common/ComponentToast";
 let ToastConstrutor = Vue.extend(toast);
 let instance;
 
-const Toast = function () {
-    instance = new ToastConstrutor().$mount();
+const Toast = function (options={}) {
+    instance = new ToastConstrutor({
+        data:options
+    }).$mount();
     document.body.appendChild(instance.$el);
 }
 
