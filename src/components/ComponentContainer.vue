@@ -4,15 +4,15 @@
     <ComponentInput :show-clear= false :width-val= "'200px'" :input-name="'input2'" :border-color-val="'blue'"/>
     <ComponentInput :show-clear= false :width-val= "'100%'" :input-name="'input2'" />
     <componentButton :button-val ="'提交'" />
-    <componentButton :button-type="'error'"/>
-    <componentButton :button-type="'disabled'" :button-val ="'自定义'"/>{{count}}
+    <componentButton :button-type="'error'" :button-val ="'错误'" @click.native="toast" />
+    <componentButton :button-type="'disabled'" :button-val ="'自定义'" @click.native="addCount" />{{count}}
   </div>
 </template>
 
 <script>
 import ComponentInput from './common/ComponentInput.vue'
 import ComponentButton from './common/ComponentButton.vue'
-import { store } from "../store";
+import { store, mutations } from "../store";
 export default {
   name: 'ComponentContainer',
   computed:{
@@ -27,6 +27,12 @@ export default {
   methods:{
     updateVal(data){
       alert(data)
+    },
+    addCount:function () {
+      mutations.setCount(store.count + 1)
+    },
+    toast(){
+      this.$toast();
     }
   }
 }
